@@ -1,0 +1,60 @@
+{
+  "name": "macro-studio",
+  "version": "1.0.0",
+  "description": "No-code automation workflows for desktop",
+  "main": "dist-electron/main.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build && electron-builder",
+    "preview": "electron ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@vitejs/plugin-react": "^6.1.2",
+    "electron": "^33.0.0",
+    "electron-builder": "^24.13.3",
+    "vite": "^8.3.5",
+    "vite-plugin-electron": "^0.11.0",
+    "vite-plugin-electron-renderer": "^0.11.0"
+  },
+  "dependencies": {
+    "electron-store": "^8.1.0",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  },
+  "build": {
+    "appId": "com.macrostudio.app",
+    "productName": "Macro Studio",
+    "mac": {
+      "category": "public.app-category.utilities",
+      "target": [
+        "dmg"
+      ]
+    },
+    "dmg": {
+      "contents": [
+        {
+          "x": 410,
+          "y": 150,
+          "type": "link",
+          "path": "/Applications"
+        },
+        {
+          "x": 130,
+          "y": 150,
+          "type": "file"
+        }
+      ]
+    },
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist-electron/**/*",
+      "src/renderer/**/*",
+      "package.json"
+    ]
+  }
+}
